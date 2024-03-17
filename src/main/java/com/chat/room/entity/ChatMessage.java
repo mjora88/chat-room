@@ -1,12 +1,15 @@
 package com.chat.room.entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
+
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.GeneratedValue;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.GenerationType;
 import java.time.LocalDateTime;
 
 @Entity
@@ -19,4 +22,8 @@ public class ChatMessage {
     private String sender;
     private String content;
     private LocalDateTime timestamp;
+    @ManyToOne
+    @JoinColumn(name ="chat_room_id")
+    private ChatRoom chatRoom;
+
 }
