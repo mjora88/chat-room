@@ -2,14 +2,13 @@ package com.chat.room.service;
 
 import com.chat.room.entity.ChatRoom;
 import com.chat.room.repository.ChatRoomRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ChatRoomService {
 
     private final ChatRoomRepository chatRoomRepository;
-    @Autowired
+
     public ChatRoomService(ChatRoomRepository chatRoomRepository) {
         this.chatRoomRepository = chatRoomRepository;
     }

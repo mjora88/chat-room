@@ -31,7 +31,7 @@ public class MessageController {
 
         }
 
-    @DeleteMapping
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteMessages (@PathVariable Long id) {
         if(!messageService.exists(id)) {
             return ResponseEntity.notFound().build();
