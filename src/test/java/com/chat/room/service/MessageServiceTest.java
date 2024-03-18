@@ -59,4 +59,12 @@ public class MessageServiceTest {
 
         verify(messageRepository, times(1)).findAll();
     }
+
+    @Test
+    public void testDeleteMessage () {
+
+        doNothing().when(messageRepository).deleteById(1L);
+        messageService.deleteMessage(1L);
+        verify(messageRepository, times(1)).deleteById(1L);
+    }
 }
