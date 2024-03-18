@@ -48,7 +48,7 @@ public class MessageServiceTest {
     public void testGetAllMessages() {
         List<Message> messages = new ArrayList<>();
         messages.add(new Message(1L, "Sender1", "Content1"));
-        messages.add(new Message(1L, "Sender2", "Content2"));
+        messages.add(new Message(2L, "Sender2", "Content2"));
 
         when(messageRepository.findAll()).thenReturn(messages);
 

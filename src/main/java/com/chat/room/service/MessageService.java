@@ -29,7 +29,7 @@ public class MessageService {
     }
 
     public void deleteMessage (Long id){
-        log.info("Attempting to delete message by{}", id);
+        log.info("Attempting to delete message by ID {}", id);
         messageRepository.deleteById(id);
 
     }
