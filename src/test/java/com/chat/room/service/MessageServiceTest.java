@@ -30,7 +30,10 @@ public class MessageServiceTest {
 
     @Test
     public void testSaveMessage() {
-        Message message = new Message(1L, "Joe", "Content");
+        Message message = new Message();
+        message.setId(1L);
+        message.setSender("Joe");
+        message.setContent("Content");
 
         when(messageRepository.save(any(Message.class))).thenReturn(message);
 
@@ -47,8 +50,17 @@ public class MessageServiceTest {
     @Test
     public void testGetAllMessages() {
         List<Message> messages = new ArrayList<>();
-        messages.add(new Message(1L, "Sender1", "Content1"));
-        messages.add(new Message(2L, "Sender2", "Content2"));
+        Message message = new Message();
+        message.setId(1L);
+        message.setContent("Content1");
+        message.setSender("Sender1");
+
+        messages.add(message);
+        message = new Message();
+        message.setId(2L);
+        message.setSender("Sender2");
+        message.setContent("Content2");
+        messages.add(message);
 
         when(messageRepository.findAll()).thenReturn(messages);
 

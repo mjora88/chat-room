@@ -2,18 +2,17 @@ package com.chat.room.entity;
 
 
 
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.GenerationType;
+
 import java.time.LocalDateTime;
 
 @Entity
-@Data
+@Setter
+@Getter
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,9 +25,4 @@ public class Message {
     @JoinColumn(name ="chat_room_id")
     private ChatRoom chatRoom;
 
-    public Message(long id, String sender, String content) {
-        this.id = id;
-        this.sender = sender;
-        this.content = content;
-    }
 }
