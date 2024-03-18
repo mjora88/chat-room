@@ -26,4 +26,9 @@ public class Message {
     @JoinColumn(name ="chat_room_id")
     private ChatRoom chatRoom;
 
+    public Message(long id, String sender, String content) {
+        this.id = id;
+        this.sender = sender;
+        this.content = content;
+    }
 }
