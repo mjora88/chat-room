@@ -19,7 +19,9 @@ public class ChatController {
     }
     @MessageMapping("/chat.send")
     @SendTo("/topic/public")
-    public Message sendMessage (@Payload Message message){
+    public Message sendMessage (@Payload Message message, SimpMessageHeaderAccessor accessor){
+        String username = (String) Objects.requireNonNull(accessor.getSessionAttributes()).get("username");
+        message.setSender(username);
         return message;
     }
 }

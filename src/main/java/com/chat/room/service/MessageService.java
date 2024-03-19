@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -19,7 +20,11 @@ public class MessageService {
     }
 
     public Message saveMessage(Message message) {
-        log.info("Attempting to save message from {}", message.getSender());
+        // TODO , I wanted to get the sender from the session instead.
+//        String sender = SecurityContextHolder.getContext().getAuthentication().getName();
+//        log.info("Attempting to save message from {}", sender);
+//        message.setSender(sender);
+        message.setTimestamp(LocalDateTime.now());
        return messageRepository.save(message);
     }
 
