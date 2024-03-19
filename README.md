@@ -10,7 +10,7 @@ Make sure you have the following installed on your machine:
 	•	Java Development Kit (JDK) 11 or later
 	•	Apache Maven
 	•	Git (optional, if you want to clone the repository)
-	•	
+		
 
 Installing
 
